@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { TabType } from '../types/portfolio';
-import { HERO_ASSETS } from '../data/portfolioData';
+import { SJLogo } from './SJLogo';
 
 interface NavbarProps {
   activeTab: TabType;
@@ -41,20 +41,14 @@ export const Navbar: React.FC<NavbarProps> = ({
         aria-label="Main Navigation"
       >
         {/* Desktop (md+): ONE centered pill */}
-        <div className="hidden md:flex items-center gap-1 bg-black/60 backdrop-blur-md rounded-full pl-3 pr-2 py-2 border border-white/10 shadow-2xl nav-drop pointer-events-auto">
-          {/* Geometric angular mark logo */}
+        <div className="hidden md:flex items-center gap-1 bg-black/70 backdrop-blur-md rounded-full pl-3 pr-2 py-2 border border-white/15 shadow-2xl nav-drop pointer-events-auto">
+          {/* SJ Monogram Logo */}
           <button
             onClick={() => handleLinkClick('about')}
-            className="flex items-center justify-center p-1 mr-1.5 text-white hover:text-red-400 transition-colors focus:outline-none"
-            title="Sunny Jadaun Portfolio"
+            className="flex items-center justify-center p-0.5 mr-2 text-white hover:scale-110 transition-transform focus:outline-none"
+            title="Sunny Jadaun (SJ)"
           >
-            <svg
-              className="w-[22px] h-[22px] fill-current"
-              viewBox="0 0 256 256"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d={HERO_ASSETS.LOGO_PATH} />
-            </svg>
+            <SJLogo className="w-7 h-7" />
           </button>
 
           {/* Nav items */}
@@ -91,34 +85,28 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Logo pill */}
           <button
             onClick={() => handleLinkClick('about')}
-            className="bg-black/60 backdrop-blur-md border border-white/10 rounded-full px-3.5 py-2 flex items-center gap-2 nav-drop shadow-xl active:scale-95 transition-transform"
+            className="bg-black/70 backdrop-blur-md border border-white/15 rounded-full px-3 py-1.5 flex items-center gap-2 nav-drop shadow-xl active:scale-95 transition-transform"
           >
-            <svg
-              className="w-[22px] h-[22px] fill-white"
-              viewBox="0 0 256 256"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d={HERO_ASSETS.LOGO_PATH} />
-            </svg>
-            <span className="text-white text-xs font-semibold tracking-wider">SUNNY JADAUN</span>
+            <SJLogo className="w-6 h-6" />
+            <span className="text-white text-xs font-bold font-helvetica-neue tracking-wider">SUNNY JADAUN</span>
           </button>
 
           {/* Hamburger toggle pill */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="bg-black/60 backdrop-blur-md border border-white/10 rounded-full p-2.5 text-white nav-drop shadow-xl active:scale-95 transition-transform"
+            className="bg-black/70 backdrop-blur-md border border-white/15 rounded-full p-2.5 text-white nav-drop shadow-xl active:scale-95 transition-transform"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed top-0 left-0 right-0 z-40 pt-20 pb-6 px-5 bg-[#0e0e14] text-white shadow-2xl border-b border-white/10">
+        <div className="md:hidden fixed top-0 left-0 right-0 z-40 pt-20 pb-6 px-5 bg-[#0e0e14]/95 backdrop-blur-xl text-white shadow-2xl border-b border-white/10">
           <div className="flex flex-col space-y-1">
-            <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-gray-500 px-1 pb-2">
+            <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-gray-500 px-1 pb-2 font-mono">
               Menu Navigation
             </div>
             {navLinks.map((link) => (
@@ -138,14 +126,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             ))}
 
-            <div className="pt-4">
-              <button
-                onClick={handleConnectClick}
-                className="w-full bg-red-600 text-white text-sm font-semibold py-3 rounded-full hover:bg-red-500 transition-colors shadow-lg active:scale-95"
-              >
-                Get In Touch / Hire
-              </button>
-            </div>
+            <button
+              onClick={handleConnectClick}
+              className="mt-4 w-full bg-white text-gray-900 font-bold py-3 rounded-xl text-center text-xs tracking-wider shadow-lg active:scale-95 transition-transform"
+            >
+              GET IN TOUCH
+            </button>
           </div>
         </div>
       )}

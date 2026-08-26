@@ -1,7 +1,8 @@
 import React from 'react';
-import { PERSONAL_INFO, HERO_ASSETS } from '../data/portfolioData';
+import { PERSONAL_INFO } from '../data/portfolioData';
 import { TabType } from '../types/portfolio';
 import { ArrowUp } from 'lucide-react';
+import { SJLogo } from './SJLogo';
 
 interface FooterProps {
   onSelectTab: (tab: TabType) => void;
@@ -18,15 +19,9 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConnect }) =>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Brand & Identity */}
         <div className="flex items-center gap-3">
-          <svg
-            className="w-6 h-6 fill-red-500"
-            viewBox="0 0 256 256"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d={HERO_ASSETS.LOGO_PATH} />
-          </svg>
+          <SJLogo className="w-8 h-8" />
           <div>
-            <div className="font-bold text-white tracking-wider">
+            <div className="font-bold text-white tracking-wider font-helvetica-neue text-sm">
               {PERSONAL_INFO.name}
             </div>
             <div className="text-[10px] text-gray-400">
@@ -71,25 +66,20 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConnect }) =>
           >
             WebXR Lab
           </button>
-          <span>•</span>
-          <button
-            onClick={onOpenConnect}
-            className="text-red-400 hover:text-red-300 font-bold"
-          >
-            Contact
-          </button>
         </div>
 
-        {/* Status & Back to Top */}
+        {/* Right CTA & Scroll To Top */}
         <div className="flex items-center gap-4">
-          <div className="text-[10px] text-gray-400 text-right hidden sm:block">
-            <div>LOCATION: INDIA (REMOTE)</div>
-            <div className="text-green-400">OPEN TO WORK // 4+ YRS EXP</div>
-          </div>
+          <button
+            onClick={onOpenConnect}
+            className="px-4 py-2 rounded-full bg-red-600/20 border border-red-500/40 text-red-400 hover:bg-red-600/30 text-xs font-semibold transition-all"
+          >
+            CONTACT ME
+          </button>
 
           <button
             onClick={scrollToTop}
-            className="p-3 rounded-full bg-white/10 hover:bg-red-600 text-white transition-all active:scale-95 shadow-md"
+            className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors flex items-center justify-center"
             title="Scroll to top"
             aria-label="Scroll to top"
           >
@@ -98,12 +88,18 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConnect }) =>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/5 text-center text-[10px] text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div className="max-w-7xl mx-auto mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-gray-400">
         <div>
-          © {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.
+          © {new Date().getFullYear()} SUNNY JADAUN. ALL RIGHTS RESERVED.
         </div>
-        <div>
-          Built with React 18, TypeScript, Tailwind CSS & WebXR.
+        <div className="flex items-center gap-4">
+          <span>REACT 18</span>
+          <span>•</span>
+          <span>NODE.JS</span>
+          <span>•</span>
+          <span>THREE.JS</span>
+          <span>•</span>
+          <span>TAILWIND CSS</span>
         </div>
       </div>
     </footer>
