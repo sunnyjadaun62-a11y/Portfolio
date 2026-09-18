@@ -1,17 +1,26 @@
-export type TabType = 'about' | 'projects' | 'experience' | 'skills' | 'demo';
+export type TabType = 'about' | 'projects' | 'experience' | 'skills';
+
+export type ProjectCategory = 
+  | 'ALL'
+  | 'AI & Legal Tech'
+  | 'ERP & Enterprise'
+  | 'WebXR & 3D'
+  | 'Creative Motion & Canvas'
+  | 'Full-Stack Web';
 
 export interface ProjectItem {
   id: string;
   title: string;
   subtitle: string;
   year: string;
-  category: 'ERP Platform' | 'WebXR & 3D' | 'API Automation' | 'Full-Stack Web';
+  category: 'AI & Legal Tech' | 'ERP & Enterprise' | 'WebXR & 3D' | 'Creative Motion & Canvas' | 'Full-Stack Web';
   stack: string[];
   description: string;
   highlights: string[];
   metrics: string;
-  status: 'PRODUCTION' | 'DEPLOYED' | 'PROPRIETARY' | 'LIVE DEMO';
+  status: 'IN DEVELOPMENT' | 'PRODUCTION' | 'DEPLOYED' | 'LIVE DEMO';
   image?: string;
+  liveUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
   accentColor?: string;
@@ -36,7 +45,7 @@ export interface SkillCategory {
   description: string;
   skills: {
     name: string;
-    level: number;
+    level?: number;
     tag?: string;
     highlight?: boolean;
   }[];

@@ -6,7 +6,7 @@ import { AboutSection } from './components/AboutSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { SkillsSection } from './components/SkillsSection';
-import { InteractiveLab } from './components/InteractiveLab';
+import { InteractiveParticles } from './components/InteractiveParticles';
 import { ContactModal } from './components/ContactModal';
 import { Footer } from './components/Footer';
 
@@ -28,9 +28,6 @@ export const App: React.FC = () => {
     } else if (tab === 'skills') {
       const el = document.getElementById('skills');
       el?.scrollIntoView({ behavior: 'smooth' });
-    } else if (tab === 'demo') {
-      const el = document.getElementById('demo');
-      el?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -47,7 +44,6 @@ export const App: React.FC = () => {
         { id: 'projects', el: document.getElementById('projects') },
         { id: 'experience', el: document.getElementById('experience') },
         { id: 'skills', el: document.getElementById('skills') },
-        { id: 'demo', el: document.getElementById('demo') },
       ];
 
       const scrollPos = window.scrollY + 250;
@@ -66,10 +62,7 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div
-      className="min-h-screen bg-[#08080c] text-white tracking-[-0.02em] font-mono relative selection:bg-red-500 selection:text-white"
-      style={{ fontFamily: "'JetBrains Mono', monospace" }}
-    >
+    <div className="min-h-screen bg-[#09090b] text-white selection:bg-red-500 selection:text-white font-sans">
       {/* Fixed Navigation Bar */}
       <Navbar
         activeTab={activeTab}
@@ -79,34 +72,42 @@ export const App: React.FC = () => {
 
       {/* Main Single Page Portfolio */}
       <main className="relative">
-        {/* Layered Cyber Hero Section (100dvh) */}
+        {/* Layered Cyber Hero Section (100dvh - untouched) */}
         <HeroSection
           onExplore={handleExploreHero}
           onOpenConnect={() => setIsConnectOpen(true)}
         />
 
-        {/* Section 01: About & Professional Summary */}
-        <AboutSection
-          onSelectTab={handleSelectTab}
-          onOpenConnect={() => setIsConnectOpen(true)}
-        />
+        {/* Content Area with Interactive Particles Background */}
+        <div className="relative overflow-hidden bg-gradient-to-b from-black via-[#09090e] to-black">
+          {/* Interactive Particle Layer Behind Content */}
+          <InteractiveParticles />
 
-        {/* Section 02: Projects & Case Studies */}
-        <ProjectsSection
-          onOpenLiveDemo={() => handleSelectTab('demo')}
-          onOpenConnect={() => setIsConnectOpen(true)}
-        />
+          {/* Section 01: About & Professional Summary */}
+          <div className="relative z-10">
+            <AboutSection
+              onSelectTab={handleSelectTab}
+              onOpenConnect={() => setIsConnectOpen(true)}
+            />
+          </div>
 
-        {/* Section 03: Experience Timeline */}
-        <ExperienceSection />
+          {/* Section 02: Selected Work & Production Showcase (13 Real Projects) */}
+          <div className="relative z-10">
+            <ProjectsSection
+              onOpenConnect={() => setIsConnectOpen(true)}
+            />
+          </div>
 
-        {/* Section 04: Technical Skills Matrix */}
-        <SkillsSection />
+          {/* Section 03: Work Experience & Leadership */}
+          <div className="relative z-10">
+            <ExperienceSection />
+          </div>
 
-        {/* Section 05: WebXR & 3D Interactive Lab */}
-        <InteractiveLab
-          onOpenConnect={() => setIsConnectOpen(true)}
-        />
+          {/* Section 04: Technical Stack & Proficiencies */}
+          <div className="relative z-10">
+            <SkillsSection />
+          </div>
+        </div>
       </main>
 
       {/* Footer */}

@@ -408,7 +408,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             onClick={onExplore}
             className="px-5 py-3 rounded-full text-xs font-semibold tracking-wider text-white/90 border border-white/20 bg-black/40 backdrop-blur-sm hover:bg-white/10 hover:border-white/40 transition-all active:scale-95"
           >
-            VIEW PROJECTS [4+ YRS]
+            EXPLORE 13+ PROJECTS
           </button>
         </div>
 

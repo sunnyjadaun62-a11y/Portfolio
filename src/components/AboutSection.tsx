@@ -1,8 +1,7 @@
 import React from 'react';
 import { PERSONAL_INFO, PORTFOLIO_IMAGES } from '../data/portfolioData';
-import { ShieldCheck, Cpu, Layers, Terminal, ArrowRight, Sparkles, CheckCircle2, Code2 } from 'lucide-react';
+import { Cpu, Layers, Terminal, ArrowRight, Sparkles, MapPin, Mail, Github } from 'lucide-react';
 import { TabType } from '../types/portfolio';
-import { SpatialHoloStage } from './SpatialHoloStage';
 
 interface AboutSectionProps {
   onSelectTab: (tab: TabType) => void;
@@ -13,163 +12,167 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   onSelectTab,
   onOpenConnect,
 }) => {
-  const highlights = [
+  const domains = [
     {
-      icon: <Cpu className="w-5 h-5 text-red-500" />,
+      icon: <Sparkles className="w-5 h-5 text-red-500" />,
+      title: "AI Legal Tech & OCR",
+      description: "Architecting Haqdar, an AI platform auditing consumer bills for CCPA/RERA overcharges and generating statutory legal notices.",
+    },
+    {
+      icon: <Cpu className="w-5 h-5 text-zinc-300" />,
       title: "Enterprise ERP & Microservices",
-      description: "Directing high-throughput Node.js/Express architectures, real-time inventory tracking, prescription calculation math (SPH, CYL, AXIS), and automated multi-tier billing workflows.",
+      description: "Engineering high-throughput Node.js/Express backends, optical prescription math (SPH, CYL, AXIS), and automated GST billing.",
     },
     {
-      icon: <Layers className="w-5 h-5 text-cyan-400" />,
+      icon: <Layers className="w-5 h-5 text-zinc-300" />,
       title: "Spatial Computing & WebXR",
-      description: "Architecting zero-install browser-based 3D and AR experiences using Three.js, A-Frame, and MindAR for fluid 60 FPS spatial graphics on mobile web.",
+      description: "Building zero-install 3D & AR browser experiences using Three.js, A-Frame, and MindAR for fluid 60 FPS spatial web.",
     },
     {
-      icon: <Terminal className="w-5 h-5 text-green-400" />,
+      icon: <Terminal className="w-5 h-5 text-zinc-300" />,
       title: "WhatsApp API Automation",
-      description: "Building high-volume messaging engines with asynchronous rate-limit queues, real-time webhook listeners, and dynamic template generators.",
-    },
-    {
-      icon: <ShieldCheck className="w-5 h-5 text-purple-400" />,
-      title: "Engineering Team Leadership",
-      description: "Led cross-functional squads of 10+ frontend and QA engineers through sprint planning, code audits, state management, and Vite/Webpack optimizations (-30% bundle load time).",
+      description: "Developing high-volume messaging engines with asynchronous rate-limited queues, webhooks, and dynamic template generators.",
     },
   ];
 
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto text-white relative">
-      {/* 3D Cutout Hero Header Composition */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-20 relative">
-        {/* Left 7 Columns: Text, Telemetry & CTA */}
-        <div className="lg:col-span-7 z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-2.5 h-2.5 bg-red-500 rounded-sm animate-pulse" />
-            <span className="text-xs uppercase tracking-[0.25em] text-red-400 font-bold">
-              [ 01 // ABOUT ME ]
-            </span>
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-helvetica-neue text-white leading-[1.08] mb-6">
-            Engineering High-Performance <br className="hidden sm:block"/>
-            <span className="text-red-500">Web Platforms</span> & Spatial 3D
+    <section id="about" className="py-24 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 max-w-[1800px] mx-auto text-white relative">
+      {/* Section Header */}
+      <div className="flex items-center gap-2 mb-3">
+        <span className="w-2 h-2 rounded-full bg-red-500"></span>
+        <span className="text-xs uppercase tracking-widest text-red-400 font-mono font-semibold">About</span>
+      </div>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-16 items-start mb-16">
+        {/* Left Columns: Story & Narrative */}
+        <div className="lg:col-span-8 xl:col-span-8 2xl:col-span-9 space-y-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight font-helvetica-neue text-white leading-tight">
+            Full-Stack & Lead Developer building robust web systems & spatial experiences.
           </h2>
 
-          <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
-            {PERSONAL_INFO.summary}
-          </p>
+          <div className="space-y-4 text-sm sm:text-base text-zinc-400 leading-relaxed font-sans">
+            <p>
+              I am a Full-Stack and Frontend Lead Developer with 4+ years of experience architecting high-performance web platforms, enterprise ERP applications, and interactive 3D/AR spatial web applications.
+            </p>
+            <p>
+              Currently, I lead full-stack engineering at <span className="text-white font-medium">DigiBySR</span>, overseeing optical ERP systems and WhatsApp Business API pipelines. I am also architecting <span className="text-white font-medium">Haqdar</span>, an AI legal assistant auditing consumer overcharges and auto-drafting statutory notices.
+            </p>
+            <p>
+              Previously at <span className="text-white font-medium">I-Pangram</span>, I led a squad of 10 frontend and QA engineers, delivering high-performance React architectures and Three.js/A-Frame WebXR applications while optimizing bundle load times by 30%.
+            </p>
+          </div>
 
-          <div className="flex flex-wrap items-center gap-4 mb-8">
+          {/* Key Metric Counters */}
+          <div className="grid grid-cols-3 gap-4 pt-4 border-t border-zinc-800">
+            <div className="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800">
+              <div className="text-2xl sm:text-3xl font-bold font-helvetica-neue text-white">4+</div>
+              <div className="text-xs text-zinc-400 mt-1">Years Experience</div>
+            </div>
+            <div className="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800">
+              <div className="text-2xl sm:text-3xl font-bold font-helvetica-neue text-white">13+</div>
+              <div className="text-xs text-zinc-400 mt-1">Live Applications</div>
+            </div>
+            <div className="p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800">
+              <div className="text-2xl sm:text-3xl font-bold font-helvetica-neue text-white">10+</div>
+              <div className="text-xs text-zinc-400 mt-1">Engineers Led</div>
+            </div>
+          </div>
+
+          {/* CTA buttons */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <button
               onClick={() => onSelectTab('projects')}
-              className="px-6 py-3 rounded-full bg-red-600 hover:bg-red-500 text-white text-xs font-bold tracking-wider transition-all shadow-lg shadow-red-900/40 active:scale-95 flex items-center gap-2"
+              className="px-6 py-3 rounded-xl bg-white text-zinc-950 text-xs font-semibold hover:bg-zinc-200 transition-all flex items-center gap-2 shadow-sm"
             >
-              <span>EXPLORE PROJECTS</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>View Projects</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={onOpenConnect}
-              className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-bold tracking-wider transition-all active:scale-95"
+              className="px-6 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white text-xs font-semibold transition-all"
             >
-              GET IN TOUCH
+              Get In Touch
             </button>
           </div>
-
-          {/* Quick Metrics Bar */}
-          <div className="grid grid-cols-3 gap-3 pt-6 border-t border-white/10 max-w-lg">
-            <div className="p-3 bg-black/40 rounded-2xl border border-white/5">
-              <div className="text-xl sm:text-2xl font-bold font-helvetica-neue text-white">4+ Yrs</div>
-              <div className="text-[10px] font-mono text-gray-400 uppercase mt-0.5">Experience</div>
-            </div>
-            <div className="p-3 bg-black/40 rounded-2xl border border-white/5">
-              <div className="text-xl sm:text-2xl font-bold font-helvetica-neue text-red-400">10+ Engs</div>
-              <div className="text-[10px] font-mono text-gray-400 uppercase mt-0.5">Squad Lead</div>
-            </div>
-            <div className="p-3 bg-black/40 rounded-2xl border border-white/5">
-              <div className="text-xl sm:text-2xl font-bold font-helvetica-neue text-green-400">-30%</div>
-              <div className="text-[10px] font-mono text-gray-400 uppercase mt-0.5">Bundle Load</div>
-            </div>
-          </div>
         </div>
 
-        {/* Right 5 Columns: 3D Holographic Spatial Avatar Stage (Life-Size & Interactive 3D Tilt) */}
-        <div className="lg:col-span-5 relative flex items-center justify-center mt-8 lg:mt-0">
-          <SpatialHoloStage
-            image={PORTFOLIO_IMAGES.sunnyAboutCutout}
-            alt="Sunny Jadaun Full-Stack Lead"
-            accentColor="red"
-            heightClass="h-[460px] sm:h-[520px]"
-            statusBadge={{
-              title: "STATUS",
-              value: "AVAILABLE FOR HIRE",
-            }}
-            domainBadge={{
-              title: "CORE DOMAIN",
-              value: "REACT • NODE • WEBXR",
-              icon: <Code2 className="w-4 h-4 text-red-400" />,
-            }}
-          />
-        </div>
-      </div>
-
-      {/* Lead Dev Workspace Card with Real Studio Environment (Filled Box Image) */}
-      <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-white/15 relative overflow-hidden mb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-4">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-red-400" />
-              <span className="text-[10px] font-mono uppercase tracking-widest text-red-400 font-bold">
-                DEVELOPER ENVIRONMENT & DIRECTIVES
-              </span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white font-helvetica-neue">
-              Production-Grade Architecture & Sub-Second Performance
-            </h3>
-            <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-mono">
-              Directing end-to-end full-stack architectures, optical ERP prescription matrices (SPH, CYL, AXIS), automated WhatsApp broadcast queues, and zero-install 3D spatial web experiences.
-            </p>
-
-            <div className="space-y-2.5 pt-2">
-              <div className="flex items-start gap-2.5 text-xs text-gray-200">
-                <CheckCircle2 className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
-                <span>Engineered high-throughput RESTful services with Node.js/Express and MongoDB aggregation pipelines.</span>
+        {/* Right Columns: Clean Profile & Focus Card */}
+        <div className="lg:col-span-4 xl:col-span-4 2xl:col-span-3">
+          <div className="rounded-3xl bg-zinc-900/80 border border-zinc-800 p-6 space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-2xl overflow-hidden border border-zinc-700 shrink-0 bg-zinc-800">
+                <img
+                  src={PORTFOLIO_IMAGES.aboutPortrait}
+                  alt={PERSONAL_INFO.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="flex items-start gap-2.5 text-xs text-gray-200">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
-                <span>Integrated Three.js, A-Frame, and MindAR image tracking directly into standard React apps at 60 FPS.</span>
+              <div>
+                <h3 className="text-lg font-bold text-white font-helvetica-neue">{PERSONAL_INFO.name}</h3>
+                <p className="text-xs text-zinc-400 font-mono">{PERSONAL_INFO.role}</p>
+                <div className="flex items-center gap-1.5 text-xs text-zinc-500 mt-1">
+                  <MapPin className="w-3.5 h-3.5 text-red-500" />
+                  <span>India • Remote Worldwide</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-white/15 aspect-video w-full relative group bg-black/60">
-            <img
-              src={PORTFOLIO_IMAGES.leadDevWorkspace}
-              alt="Developer Workspace Studio"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
-            <div className="absolute bottom-3 left-4 text-[10px] font-mono text-gray-300">
-              DEVELOPER STUDIO // REACT & NODE.JS WORKSPACE
+            <div className="space-y-2.5 pt-2 border-t border-zinc-800/80 text-xs text-zinc-300">
+              <div className="flex items-center justify-between py-1 border-b border-zinc-800/40">
+                <span className="text-zinc-500">Core Focus</span>
+                <span className="text-white font-medium">React, Node.js, WebXR, ERP</span>
+              </div>
+              <div className="flex items-center justify-between py-1 border-b border-zinc-800/40">
+                <span className="text-zinc-500">Active Build</span>
+                <span className="text-red-400 font-medium">Haqdar AI Legal Platform</span>
+              </div>
+              <div className="flex items-center justify-between py-1 border-b border-zinc-800/40">
+                <span className="text-zinc-500">Leadership</span>
+                <span className="text-white font-medium">Squad Lead & Architecture</span>
+              </div>
+              <div className="flex items-center justify-between py-1">
+                <span className="text-zinc-500">Availability</span>
+                <span className="text-emerald-400 font-medium">Open to Lead / Full-Stack Roles</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 pt-2">
+              <a
+                href={PERSONAL_INFO.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
+              >
+                <Github className="w-3.5 h-3.5" />
+                <span>GitHub Profile</span>
+              </a>
+              <a
+                href={`mailto:${PERSONAL_INFO.email}`}
+                className="flex-1 py-2 rounded-xl bg-red-600/20 border border-red-500/30 hover:bg-red-600/30 text-red-300 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5"
+              >
+                <Mail className="w-3.5 h-3.5" />
+                <span>Send Email</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Grid Highlights */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {highlights.map((item, index) => (
+      {/* 4 Core Pillars Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {domains.map((d, index) => (
           <div
             key={index}
-            className="glass-panel p-6 rounded-2xl border border-white/10 hover:border-red-500/50 transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden"
+            className="p-5 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-all group"
           >
-            <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-full blur-2xl group-hover:bg-red-500/15 transition-all" />
-            <div className="p-3 bg-black/40 border border-white/10 rounded-xl w-fit mb-4">
-              {item.icon}
+            <div className="p-2.5 bg-zinc-800/60 rounded-xl w-fit mb-3 border border-zinc-700/50">
+              {d.icon}
             </div>
-            <h3 className="text-lg font-bold text-white mb-2 font-helvetica-neue group-hover:text-red-400 transition-colors">
-              {item.title}
+            <h3 className="text-sm font-bold text-white font-helvetica-neue mb-1.5 group-hover:text-red-400 transition-colors">
+              {d.title}
             </h3>
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-              {item.description}
+            <p className="text-xs text-zinc-400 leading-relaxed font-sans">
+              {d.description}
             </p>
           </div>
         ))}
